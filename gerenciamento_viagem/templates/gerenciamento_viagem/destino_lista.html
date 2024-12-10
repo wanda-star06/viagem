@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destinos</title>
+</head>
+<body>
+    <h1>Lista de Destinos</h1>
+    <a href="{% url 'cria_destino' %}"><button>Criar Novo Destino</button></a>
+    <ul>
+        {% for destino in destinos %}
+        <li>
+            {{ destino.nome }} - <a href="{% url 'edita_destino' destino.pk %}">Editar</a> | 
+            <a href="{% url 'deleta_destino' destino.pk %}">Deletar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'tela_inicial' %}">
+        <button>Voltar</button>
+    </a>
+</body>
+</html>

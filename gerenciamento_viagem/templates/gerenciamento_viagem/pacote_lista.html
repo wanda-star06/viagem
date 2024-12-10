@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacotes</title>
+</head>
+<body>
+    <h1>Lista de Pacotes</h1>
+    <a href="{% url 'cria_pacote' %}"><button>Criar Novo Pacote</button></a>
+    <ul>
+        {% for pacote in pacotes %}
+        <li>
+            {{ pacote.nome }} - <a href="{% url 'edita_pacote' pacote.pk %}">Editar</a> | 
+            <a href="{% url 'deleta_pacote' pacote.pk %}">Deletar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'tela_inicial' %}">
+        <button>Voltar</button>
+    </a>
+</body>
+</html>
